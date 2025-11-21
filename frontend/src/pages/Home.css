@@ -244,12 +244,6 @@
   animation: pulse 2s infinite;
 }
 
-/* =============================
-   RESPONSIVE
-   ============================= */
-/* =============================
-   📱 RESPONSIVE - AJUSTES HOME/CARRITO/THEME TOGGLE
-   ============================= */
 @media (max-width: 600px) {
   /* Ajustes del formulario de usuario y logueado */
   .user-form, .user-logged {
@@ -272,13 +266,13 @@
   .cart-container {
     width: 90%;
     right: 5%;
-    top: 120px;       /* baja un poco para no tapar el header */
+    top: 150px;       /* se baja más para no tapar el header */
     max-height: 60vh; /* limita altura en móviles */
   }
 
   /* Ajustes botón toggle carrito */
   .cart-toggle {
-    top: 70px;
+    top: 100px;       /* suficiente espacio debajo del header */
     right: 20px;
     font-size: 16px;
     padding: 8px 12px;
@@ -286,7 +280,7 @@
 
   /* Ajustes botón toggle tema */
   .theme-toggle {
-    top: 70px;
+    top: 100px;       /* al mismo nivel que el carrito */
     right: 70px;
     font-size: 16px;
     padding: 8px 12px;
