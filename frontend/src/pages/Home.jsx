@@ -69,7 +69,7 @@ export default function Home({ addToCart }) {
     if (!email || !password || !name) return setMessage("Completa todos los campos");
 
     try {
-      const res = await fetch("http://localhost:3001/register", {
+      fetch("https://tienda-react-56uh.onrender.com/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, name }),
@@ -95,7 +95,7 @@ export default function Home({ addToCart }) {
     if (!email || !password) return setMessage("Completa los campos");
 
     try {
-      const res = await fetch("http://localhost:3001/login", {
+      const res = fetch("http://localhost:3001/pago", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
