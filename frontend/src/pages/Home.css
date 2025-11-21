@@ -245,74 +245,29 @@
 }
 
 @media (max-width: 600px) {
-  /* Ajustes del formulario de usuario y logueado */
-  .user-form, .user-logged {
-    width: 90%;
-  }
-
-  /* Ajustes de categorías */
-  .categories-container {
-    gap: 8px;
-  }
-
-  /* Ajustes del header */
+  
   header {
-    font-size: 1.6rem;
-    padding: 15px 10px;
-    text-align: center;
+    position: relative; 
+    z-index: 300;      
   }
 
-  /* Ajustes del contenedor del carrito */
+ 
+  .cart-toggle {
+    top: 120px;  
+    right: 20px;
+  }
+
+  
+  .theme-toggle {
+    top: 120px;  
+    right: 70px;
+  }
+
+  
   .cart-container {
+    top: 160px;       
     width: 90%;
     right: 5%;
-    top: 150px;       /* se baja más para no tapar el header */
-    max-height: 60vh; /* limita altura en móviles */
-  }
-
-  /* Ajustes botón toggle carrito */
-  .cart-toggle {
-    top: 100px;       /* suficiente espacio debajo del header */
-    right: 20px;
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-
-  /* Ajustes botón toggle tema */
-  .theme-toggle {
-    top: 100px;       /* al mismo nivel que el carrito */
-    right: 70px;
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-
-  /* Ajustes productos */
-  .product-grid {
-    gap: 16px;
-    padding: 20px 10px;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  }
-
-  .product-card img {
-    height: 140px;
-  }
-
-  .product-card h4 {
-    font-size: 0.9rem;
-  }
-
-  .product-card p {
-    font-size: 1rem;
-  }
-
-  /* Ajustes del modal de pago */
-  .modal-content {
-    width: 90%;
-    padding: 20px;
-  }
-
-  .modal-content input,
-  .modal-content select {
-    width: 95%;
+    max-height: 60vh;
   }
 }
