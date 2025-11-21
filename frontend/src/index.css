@@ -1,0 +1,370 @@
+/* =============================
+   🌐 VARIABLES BASE (DEFAULT - LIGHT)
+   ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+:root {
+  --bg-main: #f4f6fb;
+  --bg-card: #ffffff;
+  --bg-soft: #eeeeee;
+
+  --text-main: #111;
+  --text-muted: #555;
+
+  --neon-purple: #a100ff;
+  --neon-blue: #00c3ff;
+  --neon-green: #00ffa6;
+}
+
+/* =============================
+   🌙 DARK THEME
+   ============================= */
+body.dark {
+  --bg-main: #0f172a;
+  --bg-card: #111827;
+  --bg-soft: #1f2937;
+
+  --text-main: #f8fafc;
+  --text-muted: #9ca3af;
+}
+
+/* =============================
+   💙 BLUE THEME
+   ============================= */
+body.blue {
+  --bg-main: #0a2540;
+  --bg-card: #112d4e;
+  --bg-soft: #1b3a57;
+
+  --text-main: #e0f2fe;
+  --text-muted: #93c5fd;
+}
+
+/* =============================
+   🔝 HEADER
+   ============================= */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 100;
+  color: white;
+  background: linear-gradient(90deg, #6b5bff, #3fc1ff);
+}
+
+/* =============================
+   🔘 BOTONES
+   ============================= */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-weight: 600;
+  transition: 0.25s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* =============================
+   🛒 PRODUCTOS
+   ============================= */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.product-card {
+  background: var(--bg-card);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 0 12px rgba(157, 0, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: 0.25s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 22px rgba(0, 255, 157, 0.35);
+  transform: translateY(-6px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: white;
+}
+
+.product-card h4 {
+  font-size: 0.95rem;
+  min-height: 44px;
+  color: var(--text-main);
+}
+
+.product-card p {
+  color: var(--neon-green);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.product-card button {
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+  color: black;
+  margin-top: 8px;
+}
+
+
+/* =============================
+   ⛓ CARRITO Y TOGGLE DE TEMA HORIZONTAL
+   ============================= */
+.cart-toggle {
+  position: fixed;
+  top: 25px; 
+  right: 80px; 
+  background: linear-gradient(90deg, #6b5bff, #3fc1ff);
+  color: white;
+  font-size: 18px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 200;
+  cursor: pointer;
+  transition: transform 0.25s, filter 0.25s;
+}
+
+.cart-toggle:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 25px; 
+  right: 25px; 
+  background: linear-gradient(90deg, #6b5bff, #3fc1ff);
+  color: white;
+  font-size: 18px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  font-weight: bold;
+  z-index: 200;
+  cursor: pointer;
+  transition: transform 0.25s, filter 0.25s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+  filter: brightness(1.15);
+}
+
+
+.cart-count {
+  background: var(--neon-purple);
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-left: 4px;
+  color: white;
+}
+
+.cart-container {
+  position: fixed;
+  right: 20px;
+  top: 90px;
+  background: var(--bg-soft);
+  border-radius: 14px;
+  padding: 20px;
+  width: 320px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.2);
+  z-index: 150;
+}
+
+.cart-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-container li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  padding: 8px 0;
+  gap: 10px;
+}
+
+.cart-container img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  border-radius: 6px;
+  background: white;
+}
+
+.cart-container .pay-btn {
+  width: 100%;
+  background: linear-gradient(90deg, var(--neon-purple), var(--neon-blue));
+  color: white;
+  margin-top: 12px;
+}
+
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-control button {
+  background: var(--neon-blue);
+  color: black;
+}
+
+/* =============================
+   💳 MODAL
+   ============================= */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  padding: 25px;
+  border-radius: 16px;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(157, 0, 255, 0.4);
+}
+
+.modal-content input,
+.modal-content select {
+  width: 90%;
+  margin: 8px 0;
+  padding: 10px;
+  background: black;
+  border: 1px solid var(--neon-blue);
+  color: white;
+  border-radius: 8px;
+}
+
+.modal-content button {
+  width: 100%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+  color: black;
+  margin-top: 8px;
+}
+
+/* =============================
+   🔄 BARRA DE CARGA
+   ============================= */
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 12px;
+  box-shadow: 0 0 8px rgba(0, 255, 157, 0.4);
+}
+
+.progress-bar .progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+  border-radius: 8px 0 0 8px;
+  transition: width 0.2s ease;
+}
+
+/* =============================
+   ✅ MENSAJE FINAL
+   ============================= */
+.thank-you-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 400;
+}
+
+.thank-you-message {
+  background: var(--bg-card);
+  padding: 30px 46px;
+  border-radius: 16px;
+  font-size: 1.5rem;
+  color: var(--neon-green);
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.5);
+}
+
+/* =============================
+   🧾 FOOTER
+   ============================= */
+footer {
+  position: relative;
+  left: 0;
+  width: 100%;
+  background: black;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px 10px;
+  border-top: 1px solid #222;
+  margin-top: 40px;
+}
+
+/* =============================
+   📱 RESPONSIVE
+   ============================= */
+@media (max-width: 600px) {
+  .cart-container {
+    width: 90%;
+    right: 5%;
+  }
+
+  header {
+    font-size: 1.4rem;
+  }
+}
