@@ -90,7 +90,7 @@ function Cart({ cart, addToCart, removeFromCart, clearCart }) {
     startProcessingSimulation();
 
     try {
-      const response = await fetch("http://localhost:3001/pago", {
+      const response = await fetch("https://tienda-react-56uh.onrender.com/pago", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ address, email, total: finalPrice, items: cart }),
