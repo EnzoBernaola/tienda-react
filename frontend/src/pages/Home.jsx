@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 
-
-
 const productos = [
   { id: 1, nombre: "Motherboard BIOSTAR A520M", precio: 50000, imagen: "images/BIOSTARA520M.jpg", categoria: "Motherboards" },
   { id: 2, nombre: "Motherboard GIGABYTE A520M", precio: 50000, imagen: "images/GIGABYTEA520M.jpg", categoria: "Motherboards" },
@@ -56,7 +54,6 @@ export default function Home({ addToCart }) {
   const categories = ["Todos", "Motherboards", "Placas de video", "Memorias RAM", "Almacenamiento", "Fuentes"];
   const [selectedCategory, setSelectedCategory] = useState("Todos");
 
- 
   useEffect(() => {
     const savedUser = localStorage.getItem("userName");
     if (savedUser) {
@@ -69,7 +66,7 @@ export default function Home({ addToCart }) {
     if (!email || !password || !name) return setMessage("Completa todos los campos");
 
     try {
-      fetch("https://tienda-react-56uh.onrender.com/register", {
+      const res = await fetch("https://tienda-react-56uh.onrender.com/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, name }),
@@ -81,8 +78,6 @@ export default function Home({ addToCart }) {
       if (data.success) {
         setIsLogged(true);
         setUserName(name);
-
-     
         localStorage.setItem("userName", name);
       }
     } catch (err) {
@@ -95,7 +90,7 @@ export default function Home({ addToCart }) {
     if (!email || !password) return setMessage("Completa los campos");
 
     try {
-      const res = fetch("http://localhost:3001/pago", {
+      const res = await fetch("https://tienda-react-56uh.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
@@ -106,9 +101,7 @@ export default function Home({ addToCart }) {
 
       if (data.success) {
         setIsLogged(true);
-
-       
-        const finalName = data.name || localStorage.getItem("userName") || "Usuario";
+        const finalName = data.user?.name || localStorage.getItem("userName") || "Usuario";
         setUserName(finalName);
         localStorage.setItem("userName", finalName);
       }
@@ -125,8 +118,6 @@ export default function Home({ addToCart }) {
     setPassword("");
     setName("");
     setMessage("");
-
-  
   };
 
   const filteredProducts =
@@ -199,7 +190,6 @@ export default function Home({ addToCart }) {
         </div>
       ) : (
         <div className="user-logged">
-          {}
           <span className="neon-username">{userName}</span>
           <button className="logout-btn" onClick={handleLogout}>Cerrar sesión</button>
         </div>
@@ -239,5 +229,5 @@ export default function Home({ addToCart }) {
         ))}
       </div>
     </div>
-  );
+  );  
 }
